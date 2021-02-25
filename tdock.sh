@@ -5,13 +5,13 @@ set -e
 
 ## Main CLI function
 ## =================
-app_name=Tdock
+app_name=tdock
 
 repository="tamarott/"
-image_name="Tdock"
+image_name="tdock"
 version_name="v0.1"
 
-container_name="Tdock_$USER"
+container_name="tdock_$USER"
 
 main_cli() {
     ## Parse args
