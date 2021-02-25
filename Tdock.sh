@@ -11,7 +11,7 @@ repository="tamarott/"
 image_name="Tdock"
 version_name="v0.1"
 
-container_name="mldock_$USER"
+container_name="Tdock_$USER"
 
 main_cli() {
     ## Parse args
