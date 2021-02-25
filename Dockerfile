@@ -136,10 +136,12 @@ RUN pip3 install pip==20.0.2 && \
     pip3 install -U \
         virtualenv==20.0.10 \
         ipython==7.13.0 \
-        numpy==1.18.1 \
-        scipy==1.4.0 \
+        numpy==1.16.4 \
+        scipy==1.2.1 \
+		librosa==0.4.3 \
+		h5py==2.9.0 \
         cvxpy==1.0.28 \
-        matplotlib==3.2.0 \
+        matplotlib==1.5.1 \
         PyQt5==5.14.1 \
         seaborn==0.10.0 \
         plotly==4.5.3 \
@@ -165,8 +167,9 @@ RUN pip3 install pip==20.0.2 && \
         torchviz==0.0.1 \
         Pillow==6.1 \
         torchsummary==1.5.1 \
-        tensorflow-gpu==2.0.0 \
+        tensorflow-gpu==1.13.1 \
         tensorboardX==2.0 \
+		keras==1.2.1 \
         jupyter==1.0.0 \
         jupyterthemes==0.20.0 \
         jupyter_contrib_nbextensions==0.5.1 \
