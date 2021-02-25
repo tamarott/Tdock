@@ -5,7 +5,7 @@ set -e
 
 ## Main CLI function
 ## =================
-app_name=mldock
+app_name=Tdock
 
 repository="tamarott/"
 image_name="Tdock"
