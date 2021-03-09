@@ -18,9 +18,9 @@ RUN apt-get update -y  && \
         cmake \
         sudo \
         openssh-server \
-        python3 \
-        python3-dev \
-        python3-pip \
+        python2.7 \
+        python2.7-dev \
+        python-pip \
         python \
         python-dev \
         python-pip \
@@ -131,7 +131,7 @@ RUN mkdir /app && \
 
 ## Setup python environment
 ## ========================
-RUN pip3 install pip==20.0.2 && \
+RUN pip3 install pip==21.0.1 && \
     hash -r pip && \
     pip3 install -U \
         virtualenv==20.0.10 \
@@ -140,8 +140,7 @@ RUN pip3 install pip==20.0.2 && \
         scipy==1.2.1 \
 		librosa==0.4.3 \
 		h5py==2.9.0 \
-        cvxpy==1.0.28 \
-        matplotlib==1.5.1 \
+        matplotlib==3.2.0 \
         PyQt5==5.14.1 \
         seaborn==0.10.0 \
         plotly==4.5.3 \

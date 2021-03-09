@@ -1,0 +1,6 @@
+{
+  "load_extensions": {
+    "jupyter-js-widgets/extension": true,
+    "nbextensions_configurator/config_menu/main": true
+  }
+}
