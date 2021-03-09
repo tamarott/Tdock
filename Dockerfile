@@ -52,7 +52,7 @@ RUN apt-get update -y  && \
         libpng-dev \
         ffmpeg \
         python-qt4 \
-        python3-pyqt5 \
+        #python3-pyqt5 \
         imagemagick \
         inkscape \
         jed \
@@ -131,9 +131,11 @@ RUN mkdir /app && \
 
 ## Setup python environment
 ## ========================
-RUN pip3 install pip==21.0.1 && \
+#RUN pip3 install pip==21.0.1 && \
+RUN pip install pip==21.0.1 && \
     hash -r pip && \
-    pip3 install -U \
+	#pip3 install -U \
+	pip install -U \
         virtualenv==20.0.10 \
         ipython==7.13.0 \
         numpy==1.16.4 \
@@ -182,7 +184,8 @@ ENV MPLBACKEND=Agg
 
 ## Import matplotlib the first time to build the font cache.
 ## ---------------------------------------------------------
-RUN python3 -c "import matplotlib.pyplot" && \
+#RUN python3 -c "import matplotlib.pyplot" && \
+RUN python -c "import matplotlib.pyplot" && \
     cp -r /root/.cache /etc/skel/
 
 ## Setup Jupyter
@@ -213,8 +216,10 @@ RUN apt install -y xvfb libgconf2-4 && \
 ## ==========================
 RUN cd /app/ && \
     virtualenv --system-site-packages dockvenv && \
-    grep -rlnw --null /usr/local/bin/ -e '#!/usr/bin/python3' | xargs -0r cp -t /app/dockvenv/bin/ && \
-    sed -i "s/#"'!'"\/usr\/bin\/python3/#"'!'"\/usr\/bin\/env python/g" /app/dockvenv/bin/* && \
+    #grep -rlnw --null /usr/local/bin/ -e '#!/usr/bin/python3' | xargs -0r cp -t /app/dockvenv/bin/ && \
+    grep -rlnw --null /usr/local/bin/ -e '#!/usr/bin/python' | xargs -0r cp -t /app/dockvenv/bin/ && \
+    #sed -i "s/#"'!'"\/usr\/bin\/python3/#"'!'"\/usr\/bin\/env python/g" /app/dockvenv/bin/* && \
+    sed -i "s/#"'!'"\/usr\/bin\/python/#"'!'"\/usr\/bin\/env python/g" /app/dockvenv/bin/* && \
     mv /app/dockvenv /root/ && \
     ln -sfT /root/dockvenv /app/dockvenv && \
     cp -rp /root/dockvenv /etc/skel/ && \
