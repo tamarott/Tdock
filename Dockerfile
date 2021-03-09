@@ -114,14 +114,15 @@ RUN cd /tmp && \
 
 ## Install pycharm
 ## ===============
-ARG PYCHARM_SOURCE="https://download.jetbrains.com/python/pycharm-community-2018.3.3.tar.gz"
-RUN mkdir /opt/pycharm && \
-    cd /opt/pycharm && \
-    curl -L $PYCHARM_SOURCE -o installer.tgz && \
-    tar --strip-components=1 -xzf installer.tgz && \
-    rm installer.tgz && \
-    /usr/bin/python2 /opt/pycharm/helpers/pydev/setup_cython.py build_ext --inplace && \
-COPY ./resources/pycharm.bin /usr/local/bin/pycharm
+#ARG PYCHARM_SOURCE="https://download.jetbrains.com/python/pycharm-community-2018.3.3.tar.gz"
+#RUN mkdir /opt/pycharm && \
+#    cd /opt/pycharm && \
+#    curl -L $PYCHARM_SOURCE -o installer.tgz && \
+#    tar --strip-components=1 -xzf installer.tgz && \
+#    rm installer.tgz && \
+#    /usr/bin/python2 /opt/pycharm/helpers/pydev/setup_cython.py build_ext --inplace && \
+#    /usr/bin/python3 /opt/pycharm/helpers/pydev/setup_cython.py build_ext --inplace
+#COPY ./resources/pycharm.bin /usr/local/bin/pycharm
 
 ## Setup app folder
 ## ================

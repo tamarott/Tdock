@@ -116,3 +116,6 @@ python
 exit
 python
 exit
+pythom
+python
+exit
