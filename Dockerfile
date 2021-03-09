@@ -121,7 +121,6 @@ RUN mkdir /opt/pycharm && \
     tar --strip-components=1 -xzf installer.tgz && \
     rm installer.tgz && \
     /usr/bin/python2 /opt/pycharm/helpers/pydev/setup_cython.py build_ext --inplace && \
-    /usr/bin/python3 /opt/pycharm/helpers/pydev/setup_cython.py build_ext --inplace
 COPY ./resources/pycharm.bin /usr/local/bin/pycharm
 
 ## Setup app folder

@@ -111,3 +111,8 @@ exit
 which python
 python
 exit
+which python
+python
+exit
+python
+exit
