@@ -132,52 +132,54 @@ RUN mkdir /app && \
 ## Setup python environment
 ## ========================
 #RUN pip3 install pip==21.0.1 && \
-RUN pip install pip==21.0.1 && \
+RUN pip install pip==20.3.4 && \
     hash -r pip && \
 	#pip3 install -U \
 	pip install -U \
         virtualenv==20.0.10 \
-        ipython==7.13.0 \
+        #ipython==7.13.0 \
         numpy==1.16.4 \
         scipy==1.2.1 \
 		librosa==0.4.3 \
+		llvmlite==0.31.0 \
+		joblib == 0.11.0 \
 		h5py==2.9.0 \
-        matplotlib==3.2.0 \
-        PyQt5==5.14.1 \
-        seaborn==0.10.0 \
-        plotly==4.5.3 \
-        dash==1.9.1 \
-        bokeh==2.0.0 \
-        ggplot==0.11.5 \
-        altair==4.0.1 \
-        pandas==1.0.1 \
-        pyyaml==5.3 \
-        protobuf==3.11.3 \
-        ipdb==0.13.2 \
-        flake8==3.7.9 \
-        cython==0.29.15 \
-        sympy==1.5.1 \
-        nose==1.3.7 \
-        sphinx==1.8.1 \
-        tqdm==4.43.0 \
-        opencv-contrib-python==4.2.0.32 \
-        scikit-image==0.16.2 \
-        scikit-learn==0.22.2 \
-        imageio==2.8.0 \
-        torchvision==0.4.0 \
-        torchviz==0.0.1 \
-        Pillow==6.1 \
-        torchsummary==1.5.1 \
+        matplotlib \
+        #PyQt5==5.14.1 \
+        #seaborn==0.10.0 \
+        #plotly==4.5.3 \
+        #dash==1.9.1 \
+        #bokeh==2.0.0 \
+        #ggplot==0.11.5 \
+        #altair==4.0.1 \
+        #pandas==1.0.1 \
+        #pyyaml==5.3 \
+        #protobuf==3.11.3 \
+        #ipdb==0.13.2 \
+        #flake8==3.7.9 \
+        #cython==0.29.15 \
+        #sympy==1.5.1 \
+        #nose==1.3.7 \
+        #sphinx==1.8.1 \
+        #tqdm==4.43.0 \
+        #opencv-contrib-python==4.2.0.32 \
+        #scikit-image==0.16.2 \
+        #scikit-learn==0.22.2 \
+        #imageio==2.8.0 \
+        #torchvision==0.4.0 \
+        #torchviz==0.0.1 \
+        #Pillow==6.1 \
+        #torchsummary==1.5.1 \
         tensorflow-gpu==1.13.1 \
-        tensorboardX==2.0 \
+        #tensorboardX==2.0 \
 		keras==1.2.1 \
-        jupyter==1.0.0 \
-        jupyterthemes==0.20.0 \
-        jupyter_contrib_nbextensions==0.5.1 \
-        jupyterlab==2.0.1 \
-        ipywidgets==7.5.1 \
-        visdom==0.1.8.9 \
-        line_profiler==3.0.2 \
+        #jupyter==1.0.0 \
+        #jupyterthemes==0.20.0 \
+        #jupyter_contrib_nbextensions==0.5.1 \
+        #jupyterlab==2.0.1 \
+        #ipywidgets==7.5.1 \
+        #visdom==0.1.8.9 \
+        #line_profiler==3.0.2 \
         && \
         rm -r /root/.cache/pip
 ENV MPLBACKEND=Agg
@@ -190,27 +192,27 @@ RUN python -c "import matplotlib.pyplot" && \
 
 ## Setup Jupyter
 ## -------------
-RUN pip install six==1.11 && \
-    jupyter nbextension enable --py widgetsnbextension && \
-    jupyter contrib nbextension install --system && \
-    jupyter nbextensions_configurator enable && \
-    jupyter serverextension enable --py jupyterlab --system && \
-    pip install RISE && \
-    jupyter-nbextension install rise --py --sys-prefix --system && \
-    cp -r /root/.jupyter /etc/skel/
+#RUN pip install six==1.11 && \
+#    jupyter nbextension enable --py widgetsnbextension && \
+#    jupyter contrib nbextension install --system && \
+#    jupyter nbextensions_configurator enable && \
+#    jupyter serverextension enable --py jupyterlab --system && \
+#    pip install RISE && \
+#    jupyter-nbextension install rise --py --sys-prefix --system && \
+#    cp -r /root/.jupyter /etc/skel/
 
 ## Install Orca (for exporting Plotly figures to images)
 ## =====================================================
-RUN apt install -y xvfb libgconf2-4 && \
-    wget https://github.com/plotly/orca/releases/download/v1.1.1/orca-1.1.1-x86_64.AppImage -P /tmp && \
-    chmod 777 /tmp/orca-1.1.1-x86_64.AppImage && \
-    cd /tmp && \
-    ./orca-1.1.1-x86_64.AppImage --appimage-extract && \
-    mv /tmp/squashfs-root /opt/squashfs-root && \
-    chmod -R 777 /opt/squashfs-root && \
-    printf '#!/bin/bash \nxvfb-run --auto-servernum --server-args "-screen 0 640x480x24" /opt/squashfs-root/app/orca "$@"' > /usr/bin/orca && \
-    chmod 777 /usr/bin/orca && \
-    rm -r /tmp/orca-1.1.1-x86_64.AppImage
+#RUN apt install -y xvfb libgconf2-4 && \
+#    wget https://github.com/plotly/orca/releases/download/v1.1.1/orca-1.1.1-x86_64.AppImage -P /tmp && \
+#    chmod 777 /tmp/orca-1.1.1-x86_64.AppImage && \
+#    cd /tmp && \
+#    ./orca-1.1.1-x86_64.AppImage --appimage-extract && \
+#    mv /tmp/squashfs-root /opt/squashfs-root && \
+#    chmod -R 777 /opt/squashfs-root && \
+#    printf '#!/bin/bash \nxvfb-run --auto-servernum --server-args "-screen 0 640x480x24" /opt/squashfs-root/app/orca "$@"' > /usr/bin/orca && \
+#    chmod 777 /usr/bin/orca && \
+#    rm -r /tmp/orca-1.1.1-x86_64.AppImage
 
 ## Create virtual environment
 ## ==========================
