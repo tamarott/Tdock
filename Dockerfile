@@ -142,7 +142,7 @@ RUN pip install pip==20.3.4 && \
         scipy==1.2.1 \
 		librosa==0.4.3 \
 		llvmlite==0.31.0 \
-		joblib == 0.11.0 \
+		joblib==0.11.0 \
 		h5py==2.9.0 \
         matplotlib \
         #PyQt5==5.14.1 \
